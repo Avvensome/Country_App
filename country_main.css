@@ -17,5 +17,30 @@ header {
 }
 /* Main Section */
 /* style from input are in country_asset.css */
+.img-country-flag {
+  width: 20rem;
+}
+.container-country-main {
+  border: 1px solid black;
+}
+.country-name-region-container {
+  margin-bottom: 0.5rem;
+}
+.container-country-lower-section {
+  padding-left: 2rem;
+}
 
 /* Footer Section  */
+footer {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2rem;
+  background-color: rgb(185, 182, 182);
+  color: white;
+  color: black;
+}

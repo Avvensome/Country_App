@@ -7,4 +7,4 @@ const getCountry = (countryName) => {
         })
 }
 
-getCountry('poland')
+// getCountry('poland')
