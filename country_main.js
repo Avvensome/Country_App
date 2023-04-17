@@ -3,6 +3,17 @@ const input = document.querySelector('.form__input')
 const mainContainer = document.querySelector('main')
 // get value from input
 
+// input.addEventListener('keypress', function (e) {
+//   if (e.key === "Enter") e.preventDefault()
+//   if (e.key === "Enter") {
+//     console.log(input.value);
+//     getCountry(input.value)
+//     input.value = ''
+//   }
+// })
+
+
+
 const countryHtmlStructure = (countryInfo) => {
   return ` 
 
@@ -30,19 +41,13 @@ const countryHtmlStructure = (countryInfo) => {
 const getCountry = (countryName) => {
   fetch(`https://restcountries.com/v2/name/${countryName}`)
     .then(response => response.json())
-    .then(data => mainContainer.insertAdjacentHTML('beforeend', countryHtmlStructure(data[0])))
+    .then(data => {
+      mainContainer.insertAdjacentHTML('beforeend', countryHtmlStructure(data[0]))
+      console.log(data[0].borders.forEach((e) => console.log(e)));
+    })
 
 }
-
-input.addEventListener('keypress', function (e) {
-  if (e.key === "Enter") e.preventDefault()
-  if (e.key === "Enter") {
-    console.log(input.value);
-    getCountry(input.value)
-    input.value = ''
-  }
-})
-
+getCountry('Poland')
 
 
 
