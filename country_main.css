@@ -9,7 +9,7 @@ body {
   justify-content: center;
   flex-direction: column;
   font-family: "Roboto", sans-serif;
-  background-color: rgb(224, 223, 223);
+  background-color: rgb(233, 232, 232);
 }
 /* Header Section */
 header {
@@ -18,16 +18,26 @@ header {
 /* Main Section */
 /* style from input are in country_asset.css */
 .img-country-flag {
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
   width: 20rem;
 }
 .container-country-main {
-  border: 1px solid black;
+  box-shadow: 14px 6px 44px -19px rgba(66, 68, 90, 1);
+}
+.container-country-lower-section {
+  padding: 1rem 2rem;
+  background-color: white;
+}
+.container-country-lower-section p {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
 }
 .country-name-region-container {
   margin-bottom: 0.5rem;
 }
-.container-country-lower-section {
-  padding-left: 2rem;
+.country-name-region-container p {
+  margin-bottom: 10rem;
 }
 
 /* Footer Section  */
