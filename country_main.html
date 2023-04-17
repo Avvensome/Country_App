@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="Icons/icons8-globe-16.png" />
+    <link rel="stylesheet" href="country_main.css" />
+    <link rel="stylesheet" href="country_assets.css" />
+    <script src="country_main.js"></script>
+    <title>Country App</title>
+  </head>
+  <body>
+    <header>
+      <h1>Enter the country you want to know about</h1>
+    </header>
+    <main>
+      <form>
+        <div class="form__group">
+          <input
+            type="text"
+            class="form__input"
+            id="name"
+            placeholder="Country Name"
+            required=""
+          />
+          <label for="name" class="form__label">Country Name</label>
+        </div>
+      </form>
+      <div class="container-country-main">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Flag_of_Poland_2.svg/400px-Flag_of_Poland_2.svg.png"
+          alt=""
+        />
+        <div class="country-name-region-container">
+          <h2>Poland</h2>
+          <h3>Europe</h3>
+        </div>
+        <div class="country-info-cointainer">
+          <p>💬 Polish</p>
+          <p>💰 PLN</p>
+          <p>👬 36</p>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>Design and create by <a href="">Patryk Zawistowski</a></p>
+    </footer>
+  </body>
+</html>

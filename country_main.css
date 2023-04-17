@@ -1,0 +1,21 @@
+/* Main tags */
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Roboto", sans-serif;
+  background-color: rgb(224, 223, 223);
+}
+/* Header Section */
+header {
+  margin: 1rem 0;
+}
+/* Main Section */
+/* style from input are in country_asset.css */
+
+/* Footer Section  */
