@@ -1,22 +1,21 @@
 // Select all elements and inputs
 const input = document.querySelector('.form__input')
-const mainContainer = document.querySelector('main')
+const mainContainer = document.querySelector('.container-main')
 // get value from input
 
-// input.addEventListener('keypress', function (e) {
-//   if (e.key === "Enter") e.preventDefault()
-//   if (e.key === "Enter") {
-//     console.log(input.value);
-//     getCountry(input.value)
-//     input.value = ''
-//   }
-// })
+input.addEventListener('keypress', function (e) {
+  if (e.key === "Enter") e.preventDefault()
+  if (e.key === "Enter") {
+    mainContainer.textContent = ""
+    getCountry(input.value)
+    input.value = ''
+  }
+})
 
 
 
 const countryHtmlStructure = (countryInfo) => {
   return ` 
-
     <div class="container-country-main">
     <img
       class="img-country-flag"
@@ -39,12 +38,20 @@ const countryHtmlStructure = (countryInfo) => {
 
 
 const getCountry = (countryName) => {
+  // Main Country
   fetch(`https://restcountries.com/v2/name/${countryName}`)
     .then(response => response.json())
     .then(data => {
       mainContainer.insertAdjacentHTML('beforeend', countryHtmlStructure(data[0]))
-      console.log(data[0].borders.forEach((e) => console.log(e)));
-    })
+      return data[0].borders
+    }).then(data => console.log(data))
+
+  // Country borders
+  // fetch(`https://restcountries.com/v2/alpha/{code}`)
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     mainContainer.insertAdjacentHTML('beforeend', countryHtmlStructure(data[0]))
+  //   })
 
 }
 getCountry('Poland')
