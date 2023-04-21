@@ -55,7 +55,7 @@ const getCountry = (countryName) => {
     })
 
 }
-getCountry('Poland')
+// getCountry('Poland')
 // getCountryTest('POL')
 
 
