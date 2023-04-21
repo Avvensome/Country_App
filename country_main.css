@@ -12,28 +12,33 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 0.25px solid gray;
+  border-bottom: 0.0156rem solid gray;
 }
 header img {
-  margin: 10px;
-  height: 50px;
+  margin: 0.625rem;
+  height: 3.125rem;
   cursor: pointer;
 }
 header div {
   justify-content: center;
 }
 header p {
-  font-size: 25px;
+  font-size: 1.5625rem;
 }
 header input {
-  width: 30rem;
-  height: 25px;
-  font-size: 20px;
-  padding-left: 10px;
+  width: 480px;
+  height: 1.5625rem;
+  font-size: 1.25rem;
+  padding-left: 0.625rem;
   text-align: center;
 }
 header button {
-  margin-right: 100px;
+  padding: 0.625rem;
+  margin-right: 3.125rem;
+}
+header button:hover {
+  background-color: red;
+  color: white;
 }
 .cointerner-left-side {
   display: flex;
@@ -45,10 +50,10 @@ header button {
   justify-items: center;
   align-items: center;
   grid-auto-flow: row;
-  grid-template-columns: repeat(7, 0px);
+  grid-template-columns: repeat(7, 0rem);
   grid-template-rows: repeat(4, auto);
-  grid-row-gap: 1px;
-  grid-column-gap: 300px;
+  grid-row-gap: 0.0625rem;
+  grid-column-gap: 18.75rem;
   transform: scale(0.8);
 }
 
@@ -59,7 +64,7 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 2rem;
+  height: 32px;
   background-color: rgb(185, 182, 182);
   color: white;
   color: black;
