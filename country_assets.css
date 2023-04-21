@@ -10,6 +10,7 @@
 
 .form__input {
   font-family: "Roboto", sans-serif;
+  max-width: 15rem;
   color: #333;
   font-size: 1rem;
   margin: 0 auto;

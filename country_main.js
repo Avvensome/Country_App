@@ -1,22 +1,23 @@
 // Select all elements and inputs
 const input = document.querySelector('.form__input')
 const mainContainer = document.querySelector('.container-main')
+const neighbourContainer = document.querySelector('.container-neighbour')
 // get value from input
 
 input.addEventListener('keypress', function (e) {
   if (e.key === "Enter") e.preventDefault()
   if (e.key === "Enter") {
     mainContainer.textContent = ""
+    neighbourContainer.textContent = ""
     getCountry(input.value)
     input.value = ''
   }
 })
 
 
-
-const countryHtmlStructure = (countryInfo) => {
+const countryHtmlStructure = (countryInfo, neighbour = "") => {
   return ` 
-    <div class="container-country-main">
+    <div class="container-country-main-${neighbour}">
     <img
       class="img-country-flag"
       src="${countryInfo.flags.svg}"
@@ -43,19 +44,19 @@ const getCountry = (countryName) => {
     .then(response => response.json())
     .then(data => {
       mainContainer.insertAdjacentHTML('beforeend', countryHtmlStructure(data[0]))
-      return data[0].borders
-    }).then(data => console.log(data))
-
-  // Country borders
-  // fetch(`https://restcountries.com/v2/alpha/{code}`)
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     mainContainer.insertAdjacentHTML('beforeend', countryHtmlStructure(data[0]))
-  //   })
+      const borderCountries = data[0].borders.map(border => {
+        return fetch(`https://restcountries.com/v2/alpha/${border}`).then(response => response.json());
+      });
+      return Promise.all(borderCountries)
+    }).then(borderCountries => {
+      borderCountries.forEach(e => {
+        neighbourContainer.insertAdjacentHTML('beforeend', countryHtmlStructure(e))
+      })
+    })
 
 }
 getCountry('Poland')
-
+// getCountryTest('POL')
 
 
 
