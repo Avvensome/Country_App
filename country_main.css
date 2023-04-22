@@ -1,11 +1,3 @@
-/* 
-Color theme Light
-#666666	(102,102,102)
-#f1f1f1	(241,241,241)
-Color themne dark
-bg 0000
-
-*/
 :root {
   /* Light Mode */
   --light-main-bg-color: #f1f1f1;
@@ -14,7 +6,7 @@ bg 0000
   --light-shadow-color: #42445a;
   --light-mode-switcher: #ffffff;
   --light-mode-switcher-hover: #000000;
-  /* Dark Mode */
+  --light-mode-footer: #b9b6b6;
 }
 
 /* Main tags */
@@ -26,14 +18,18 @@ body {
   font-family: "Roboto", sans-serif;
   background-color: var(--light-main-bg-color);
 }
-
+h2,
+h3,
+p {
+  color: black;
+}
 /* Header Section */
-
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 0.2496px solid var(--light-secondary-color);
+  background-color: var(--light-main-bg-color);
 }
 header img {
   margin: 10px;
@@ -56,16 +52,24 @@ header input {
 header button {
   padding: 10px;
   margin-right: 50px;
-  background-color: #ffffff;
+  background-color: var(--light-mode-switcher);
+  color: var(--light-font-color);
   font-weight: 500;
+  cursor: pointer;
 }
 header button:hover {
-  background-color: #000000;
-  color: white;
+  background-color: var(--light-mode-switcher-hover);
+  color: var(--light-mode-switcher);
 }
 .cointerner-left-side {
   display: flex;
 }
+.left-content-header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 /* Main Country */
 .container-main {
   display: grid;
@@ -109,7 +113,13 @@ footer {
   bottom: 0;
   width: 100%;
   height: 2rem;
-  background-color: rgb(185, 182, 182);
-  color: white;
-  color: black;
+  background-color: var(--light-mode-footer);
+}
+/* Dark-Mode */
+.dark-mode {
+  --light-main-bg-color: black;
+  --light-secondary-color: white;
+  --light-font-color: white;
+  --light-shadow-color: white;
+  --light-shadow-color: white;
 }

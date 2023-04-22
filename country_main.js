@@ -1,8 +1,13 @@
 // Select all elements and inputs
-const input = document.querySelector('input')
+const body = document.querySelector('body')
+const header = document.querySelector('header')
 const mainContainer = document.querySelector('.container-main')
+const containerCountry = document.querySelector('.container-country-main-')
+const input = document.querySelector('input')
+const logo = document.querySelector('.app-logo')
+const colorSwitcher = document.querySelector('header button')
 // get value from input
-console.log(input);
+// buttons,inputs
 input.addEventListener('keypress', function (e) {
   if (e.key === "Enter") e.preventDefault()
   if (e.key === "Enter") {
@@ -12,6 +17,14 @@ input.addEventListener('keypress', function (e) {
   }
 })
 
+logo.addEventListener('click', () => window.location.reload())
+
+colorSwitcher.addEventListener('click', () => {
+  body.classList.toggle('dark-mode')
+  header.classList.toggle('dark-mode')
+  mainContainer.classList.toggle('dark-mode')
+  document.querySelector('h1').style.color = 'white'
+})
 
 const countryHtmlStructure = (countryInfo, neighbour = "") => {
   return ` 
