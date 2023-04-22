@@ -1,14 +1,12 @@
 // Select all elements and inputs
-const input = document.querySelector('.form__input')
+const input = document.querySelector('input')
 const mainContainer = document.querySelector('.container-main')
-const neighbourContainer = document.querySelector('.container-neighbour')
 // get value from input
-
+console.log(input);
 input.addEventListener('keypress', function (e) {
   if (e.key === "Enter") e.preventDefault()
   if (e.key === "Enter") {
     mainContainer.textContent = ""
-    neighbourContainer.textContent = ""
     getCountry(input.value)
     input.value = ''
   }
@@ -50,7 +48,7 @@ const getCountry = (countryName) => {
       return Promise.all(borderCountries)
     }).then(borderCountries => {
       borderCountries.forEach(e => {
-        neighbourContainer.insertAdjacentHTML('beforeend', countryHtmlStructure(e))
+        mainContainer.insertAdjacentHTML('beforeend', countryHtmlStructure(e))
       })
     })
 
