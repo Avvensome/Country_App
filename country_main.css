@@ -4,7 +4,15 @@
   --light-secondary-color: #ddc3a5;
   --light-font-color: #000000;
 }
-
+/* Dark-Mode */
+body.dark-mode {
+  --light-main-bg-color: #222831;
+  --light-secondary-color: #393e46;
+  --light-font-color: white;
+  transition: all 1s;
+}
+body.dark-mode container-country-main- {
+}
 /* Main tags */
 * {
   padding: 0;
@@ -13,7 +21,7 @@
 body {
   font-family: "Roboto", sans-serif;
   background-color: var(--light-main-bg-color);
-  transition: all 1s;
+  transition: background-color 1s;
 }
 h2,
 h3,
@@ -27,7 +35,7 @@ header {
   justify-content: space-between;
   border-bottom: 0.2496px solid black;
   background-color: var(--light-secondary-color);
-  transition: all 1s;
+  transition: background-color 1s;
 }
 header img {
   margin: 10px;
@@ -55,7 +63,7 @@ header button {
   background-color: var(--light-main-bg-color);
   color: var(--light-font-color);
   border-color: var(--light-font-color);
-  transition: all 1s;
+  transition: background-color 1s, color 1s, border-color 1s;
 }
 header button:hover {
   opacity: 0.3;
@@ -82,7 +90,7 @@ header button:hover {
 }
 .container-country-main- {
   margin: 0.9375rem;
-  box-shadow: 0rem 0rem 0.6875rem 0.0625rem #42445a;
+  box-shadow: 0rem 0rem 0.6875rem 0.0625rem var(--light-font-color);
   background-color: white;
 }
 .container-country-main-,
@@ -113,12 +121,9 @@ footer {
   width: 100%;
   height: 2rem;
   background-color: var(--light-secondary-color);
-  transition: all 1s;
+  transition: background-color 1s;
 }
-/* Dark-Mode */
-.dark-mode {
-  --light-main-bg-color: #222831;
-  --light-secondary-color: #393e46;
-  --light-font-color: white;
-  transition: all 1s;
+footer p {
+  color: var(--light-font-color);
+  transition: color 1s;
 }

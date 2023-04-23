@@ -23,12 +23,11 @@ colorSwitcher.addEventListener('click', () => {
   body.classList.toggle('dark-mode')
   header.classList.toggle('dark-mode')
   mainContainer.classList.toggle('dark-mode')
-  document.querySelector('h1').style.color = 'white'
 })
 
-const countryHtmlStructure = (countryInfo, neighbour = "") => {
+const countryHtmlStructure = (countryInfo) => {
   return ` 
-    <div class="container-country-main-${neighbour}">
+    <div class="container-country-main-">
     <img
       class="img-country-flag"
       src="${countryInfo.flags.svg}"
