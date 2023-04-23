@@ -1,12 +1,8 @@
 :root {
   /* Light Mode */
-  --light-main-bg-color: #f1f1f1;
-  --light-secondary-color: #666666;
+  --light-main-bg-color: #e0a96d;
+  --light-secondary-color: #ddc3a5;
   --light-font-color: #000000;
-  --light-shadow-color: #42445a;
-  --light-mode-switcher: #ffffff;
-  --light-mode-switcher-hover: #000000;
-  --light-mode-footer: #b9b6b6;
 }
 
 /* Main tags */
@@ -17,6 +13,7 @@
 body {
   font-family: "Roboto", sans-serif;
   background-color: var(--light-main-bg-color);
+  transition: all 1s;
 }
 h2,
 h3,
@@ -28,8 +25,9 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 0.2496px solid var(--light-secondary-color);
-  background-color: var(--light-main-bg-color);
+  border-bottom: 0.2496px solid black;
+  background-color: var(--light-secondary-color);
+  transition: all 1s;
 }
 header img {
   margin: 10px;
@@ -52,14 +50,15 @@ header input {
 header button {
   padding: 10px;
   margin-right: 50px;
-  background-color: var(--light-mode-switcher);
-  color: var(--light-font-color);
   font-weight: 500;
   cursor: pointer;
+  background-color: var(--light-main-bg-color);
+  color: var(--light-font-color);
+  border-color: var(--light-font-color);
+  transition: all 1s;
 }
 header button:hover {
-  background-color: var(--light-mode-switcher-hover);
-  color: var(--light-mode-switcher);
+  opacity: 0.3;
 }
 .cointerner-left-side {
   display: flex;
@@ -113,13 +112,13 @@ footer {
   bottom: 0;
   width: 100%;
   height: 2rem;
-  background-color: var(--light-mode-footer);
+  background-color: var(--light-secondary-color);
+  transition: all 1s;
 }
 /* Dark-Mode */
 .dark-mode {
-  --light-main-bg-color: black;
-  --light-secondary-color: white;
+  --light-main-bg-color: #222831;
+  --light-secondary-color: #393e46;
   --light-font-color: white;
-  --light-shadow-color: white;
-  --light-shadow-color: white;
+  transition: all 1s;
 }
