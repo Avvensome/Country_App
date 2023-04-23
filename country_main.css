@@ -11,8 +11,6 @@ body.dark-mode {
   --light-font-color: white;
   transition: all 1s;
 }
-body.dark-mode container-country-main- {
-}
 /* Main tags */
 * {
   padding: 0;
@@ -68,8 +66,10 @@ header button {
 header button:hover {
   opacity: 0.3;
 }
-.cointerner-left-side {
+.cointerner-left-side,
+.cointeiner-right-side {
   display: flex;
+  align-items: center;
 }
 .left-content-header {
   display: flex;
