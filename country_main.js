@@ -3,9 +3,12 @@ const body = document.querySelector('body')
 const header = document.querySelector('header')
 const mainContainer = document.querySelector('.container-main')
 const containerCountry = document.querySelector('.container-country-main-')
-const input = document.querySelector('input')
 const logo = document.querySelector('.app-logo')
+const input = document.querySelector('input')
 const colorSwitcher = document.querySelector('header button')
+// Pop-up-window
+const filterIcon = document.querySelector('.filter-icon')
+const popupWindow = document.querySelector('.pop-up-window ')
 // Local Storage
 let theme = localStorage.getItem('theme') || "light"
 // get value from input
@@ -20,7 +23,7 @@ input.addEventListener('keypress', function (e) {
 })
 
 logo.addEventListener('click', () => window.location.reload())
-
+filterIcon.addEventListener('click', () => popupWindow.classList.toggle('pop-up-window-hide'))
 // Local Storage Color Theme
 colorSwitcher.addEventListener('click', () => {
   if (theme === "dark") {
@@ -69,10 +72,12 @@ const getCountry = (countryName) => {
     .then(response => response.json())
     .then(data => {
       mainContainer.insertAdjacentHTML('beforeend', countryHtmlStructure(data[0]))
+      console.log(data);
       const borderCountries = data[0].borders.map(border => {
         return fetch(`https://restcountries.com/v2/alpha/${border}`).then(response => response.json());
       });
       return Promise.all(borderCountries)
+      // Render Neigboour 
     }).then(borderCountries => {
       borderCountries.forEach(e => {
         mainContainer.insertAdjacentHTML('beforeend', countryHtmlStructure(e))
