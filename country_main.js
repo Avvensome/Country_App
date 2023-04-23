@@ -6,6 +6,8 @@ const containerCountry = document.querySelector('.container-country-main-')
 const input = document.querySelector('input')
 const logo = document.querySelector('.app-logo')
 const colorSwitcher = document.querySelector('header button')
+// Local Storage
+let theme = localStorage.getItem('theme') || "light"
 // get value from input
 // buttons,inputs
 input.addEventListener('keypress', function (e) {
@@ -19,12 +21,27 @@ input.addEventListener('keypress', function (e) {
 
 logo.addEventListener('click', () => window.location.reload())
 
+// Local Storage Color Theme
 colorSwitcher.addEventListener('click', () => {
-  body.classList.toggle('dark-mode')
-  header.classList.toggle('dark-mode')
-  mainContainer.classList.toggle('dark-mode')
+  if (theme === "dark") {
+    body.classList.remove('dark-mode');
+    header.classList.remove('dark-mode');
+    mainContainer.classList.remove('dark-mode');
+    theme = "light"
+  } else {
+    body.classList.add('dark-mode');
+    header.classList.add('dark-mode');
+    mainContainer.classList.add('dark-mode');
+    theme = "dark"
+  }
+  localStorage.setItem('theme', theme)
 })
-
+if (theme === "dark") {
+  body.classList.add('dark-mode');
+  header.classList.add('dark-mode');
+  mainContainer.classList.add('dark-mode');
+}
+// Main Structure
 const countryHtmlStructure = (countryInfo) => {
   return ` 
     <div class="container-country-main-">
@@ -46,8 +63,6 @@ const countryHtmlStructure = (countryInfo) => {
   </div > `
 }
 
-
-
 const getCountry = (countryName) => {
   // Main Country
   fetch(`https://restcountries.com/v2/name/${countryName}`)
@@ -65,8 +80,5 @@ const getCountry = (countryName) => {
     })
 
 }
-// getCountry('Poland')
-// getCountryTest('POL')
-
 
 
