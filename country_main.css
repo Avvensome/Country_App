@@ -117,7 +117,7 @@ label p {
 .container-country-main- {
   margin: 15px;
   box-shadow: 9px 7px 31px -12px var(--light-font-color);
-  background-color: white;
+  background-color: rgb(241, 240, 240);
 }
 .container-country-main-,
 .container-country-main- img {
@@ -135,6 +135,10 @@ label p {
 }
 .country-info-container {
   padding-bottom: 10px;
+}
+.map-info {
+  cursor: pointer;
+  width: 80px;
 }
 /* Footer Section  */
 footer {
