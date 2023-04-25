@@ -12,9 +12,10 @@ const colorSwitcher = document.querySelector('header button')
 const filterIcon = document.querySelector('.filter-icon')
 const popupWindow = document.querySelector('.pop-up-window ')
 const checkBoxes = document.querySelectorAll('.pop-up-window input[type="checkbox"]')
+// Blocking All Checkboxes before typing a country
+checkBoxes.forEach(e => e.disabled = true)
 // Local Storage
 let theme = localStorage.getItem('theme') || "light"
-// get value from input
 // buttons,inputs
 input.addEventListener('keypress', function (e) {
   if (e.key === "Enter") e.preventDefault()
@@ -54,6 +55,16 @@ if (theme === "dark") {
   body.classList.add('dark-mode');
   header.classList.add('dark-mode');
   mainContainer.classList.add('dark-mode');
+  filterIcon.src = `Icons/pngegg_w.png`
+}
+// Restarting Filters value
+const restartFilter = () => {
+  if (checkBoxes[0].checked === false) checkBoxes[0].checked = true
+  if (checkBoxes[1].checked === false) checkBoxes[1].checked = true
+  if (checkBoxes[2].checked === false) checkBoxes[2].checked = true
+  if (checkBoxes[3].checked === true) checkBoxes[3].checked = false
+  if (checkBoxes[4].checked === true) checkBoxes[4].checked = false
+  if (checkBoxes[5].checked === true) checkBoxes[5].checked = false
 }
 // Main Structure
 const countryHtmlStructure = (countryInfo) => {
@@ -72,9 +83,9 @@ const countryHtmlStructure = (countryInfo) => {
         <p class="languages">💬 ${countryInfo.languages[0].name}</p>
         <p class="currencies">💰 ${countryInfo.currencies[0].code}</p>
         <p class="population">👬 ${(countryInfo.population / 1000000).toFixed(2)} M</p>
-        <p class="capital">🏙️ ${countryInfo.capital}</p>
-        <p class="timezones">⏱${countryInfo.timezones[0]}</p>
-        <p class="map-info">🗺️<${(countryInfo.latlng[0].toFixed(0))},${(countryInfo.latlng[1].toFixed(0))}></p>
+        <p class="capital display">🏙️ ${countryInfo.capital}</p>
+        <p class="timezones display">⏱${countryInfo.timezones[0]}</p>
+        <p class="map-info display">🗺️<${(countryInfo.latlng[0].toFixed(0))},${(countryInfo.latlng[1].toFixed(0))}></p>
       </div >
     </div >
   </div > `
@@ -86,6 +97,9 @@ const getCountry = (countryName) => {
     .then(response => response.json())
     .then(data => {
       mainContainer.insertAdjacentHTML('beforeend', countryHtmlStructure(data[0]))
+      restartFilter()
+      // Unblock checkboxes
+      checkBoxes.forEach(el => el.disabled = false)
       const borderCountries = data[0].borders.map(border => {
         return fetch(`https://restcountries.com/v2/alpha/${border}`).then(response => response.json());
       });
@@ -96,20 +110,15 @@ const getCountry = (countryName) => {
     })
 
 }
-getCountry('Poland')
-
 
 
 checkBoxes.forEach((checkbox, index) => {
-  checkbox.addEventListener('change', (e) => {
-    const data = checkbox.id
+  checkbox.addEventListener('change', () => {
     const i = index
     const containerCountryLowerSection = document.querySelectorAll('.country-info-container')
     if (containerCountryLowerSection.length = 0) return
     if (containerCountryLowerSection.length > 1) {
-      containerCountryLowerSection.forEach((e) => e.children[i].style.display = "none")
+      containerCountryLowerSection.forEach((e) => e.children[i].classList.toggle("display"))
     }
   });
 })
-
-
