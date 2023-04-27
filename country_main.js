@@ -16,6 +16,8 @@ const checkBoxes = document.querySelectorAll('.pop-up-window input[type="checkbo
 checkBoxes.forEach(e => e.disabled = true)
 // Local Storage
 let theme = localStorage.getItem('theme') || "light"
+// Leaflet Library configuration
+
 // buttons,inputs
 input.addEventListener('keypress', function (e) {
   if (e.key === "Enter") e.preventDefault()
@@ -85,18 +87,22 @@ const countryHtmlStructure = (countryInfo) => {
         <p class="population">👬 ${(countryInfo.population / 1000000).toFixed(2)} M</p>
         <p class="capital display">🏙️ ${countryInfo.capital}</p>
         <p class="timezones display">⏱${countryInfo.timezones[0]}</p>
-        <p class="map-info display">🗺️<${(countryInfo.latlng[0].toFixed(0))},${(countryInfo.latlng[1].toFixed(0))}></p>
+        <div class="pop-up-window-container-map display">
+        <p class="map-info ">🗺️<${(countryInfo.latlng[0].toFixed(0))},${(countryInfo.latlng[1].toFixed(0))}></p>
+        <div id="map"></div>
+        </div>
       </div >
     </div >
   </div > `
 }
 // Render Main Structure
 const getCountry = (countryName) => {
-  // Main Country
   fetch(`https://restcountries.com/v2/name/${countryName}`)
     .then(response => response.json())
     .then(data => {
+      // Render Main Country
       mainContainer.insertAdjacentHTML('beforeend', countryHtmlStructure(data[0]))
+      // Restart Filter
       restartFilter()
       // Unblock checkboxes
       checkBoxes.forEach(el => el.disabled = false)
@@ -111,14 +117,13 @@ const getCountry = (countryName) => {
 
 }
 
-
-checkBoxes.forEach((checkbox, index) => {
+// Applying Filters
+checkBoxes.forEach((checkbox, i) => {
   checkbox.addEventListener('change', () => {
-    const i = index
     const containerCountryLowerSection = document.querySelectorAll('.country-info-container')
     if (containerCountryLowerSection.length = 0) return
-    if (containerCountryLowerSection.length > 1) {
-      containerCountryLowerSection.forEach((e) => e.children[i].classList.toggle("display"))
-    }
+    if (containerCountryLowerSection.length > 1) containerCountryLowerSection.forEach((e) => e.children[i].classList.toggle("display"))
+
   });
 })
+getCountry('Lithuania')

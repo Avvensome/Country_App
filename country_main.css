@@ -77,7 +77,8 @@ h1 {
   flex-direction: column;
 }
 /* POP-UP */
-.pop-up-window-container {
+.pop-up-window-container,
+.pop-up-window-container-map {
   position: relative;
 }
 .pop-up-window {
@@ -160,4 +161,14 @@ footer p {
 /* Display  */
 .display {
   display: none;
+}
+#map {
+  display: none;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background-color: red;
+}
+.map-info:hover ~ #map {
+  display: block;
 }

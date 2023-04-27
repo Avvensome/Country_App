@@ -13,7 +13,12 @@
     <link rel="icon" type="image/x-icon" href="Icons/icons8-globe-16.png" />
     <link rel="stylesheet" href="country_main.css" />
     <link rel="stylesheet" href="country_assets.css" />
-
+    <!-- Leaflet -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
     <title>Country App</title>
   </head>
   <body>
@@ -75,7 +80,9 @@
             <div class="country-info-container">
               <p>💬 Polish</p>
               <p>💰 PLN</p>
-              <p>👬 36</p>
+              <div class="pop-up-window-container">
+                <p>👬 36</p>
+              </div>
             </div>
           </div>
         </div> -->
@@ -91,4 +98,10 @@
     </footer>
   </body>
   <script src="country_main.js"></script>
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""
+  ></script>
 </html>
