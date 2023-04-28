@@ -86,15 +86,14 @@ const countryHtmlStructure = (countryInfo) => {
         <p class="currencies">💰 ${countryInfo.currencies[0].code}</p>
         <p class="population">👬 ${(countryInfo.population / 1000000).toFixed(2)} M</p>
         <p class="capital display">🏙️ ${countryInfo.capital}</p>
-        <p class="timezones display">⏱${countryInfo.timezones[0]}</p>
-        <div class="pop-up-window-container-map display">
-        <p class="map-info ">🗺️<${(countryInfo.latlng[0].toFixed(0))},${(countryInfo.latlng[1].toFixed(0))}></p>
-        <div id="map"></div>
-        </div>
+        <p class="timezones display">⏱ ${countryInfo.timezones[0]}</p>
+        <p class="map-info display">🗺️<${(countryInfo.latlng[0].toFixed(0))},${(countryInfo.latlng[1].toFixed(0))}></p>
       </div >
     </div >
   </div > `
 }
+
+
 // Render Main Structure
 const getCountry = (countryName) => {
   fetch(`https://restcountries.com/v2/name/${countryName}`)
@@ -109,21 +108,27 @@ const getCountry = (countryName) => {
       const borderCountries = data[0].borders.map(border => {
         return fetch(`https://restcountries.com/v2/alpha/${border}`).then(response => response.json());
       });
+
       return Promise.all(borderCountries)
       // Render Neigboour 
     }).then(borderCountries => {
-      borderCountries.forEach(e => { mainContainer.insertAdjacentHTML('beforeend', countryHtmlStructure(e)) })
+      borderCountries.forEach(e => {
+        mainContainer.insertAdjacentHTML('beforeend', countryHtmlStructure(e))
+      })
     })
 
 }
-
 // Applying Filters
 checkBoxes.forEach((checkbox, i) => {
   checkbox.addEventListener('change', () => {
     const containerCountryLowerSection = document.querySelectorAll('.country-info-container')
     if (containerCountryLowerSection.length = 0) return
-    if (containerCountryLowerSection.length > 1) containerCountryLowerSection.forEach((e) => e.children[i].classList.toggle("display"))
+    if (containerCountryLowerSection.length >= 1) containerCountryLowerSection.forEach((e) => e.children[i].classList.toggle("display"))
 
   });
 })
 getCountry('Lithuania')
+
+
+
+
