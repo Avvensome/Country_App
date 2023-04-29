@@ -12,6 +12,8 @@ const colorSwitcher = document.querySelector('header button')
 const filterIcon = document.querySelector('.filter-icon')
 const popupWindow = document.querySelector('.pop-up-window ')
 const checkBoxes = document.querySelectorAll('.pop-up-window input[type="checkbox"]')
+// History Panel
+
 // Blocking All Checkboxes before typing a country
 checkBoxes.forEach(e => e.disabled = true)
 // Local Storage
@@ -127,8 +129,10 @@ checkBoxes.forEach((checkbox, i) => {
 
   });
 })
-getCountry('Lithuania')
+// Search History
+const searchHistory = []
+document.querySelector('.history-container-main button').addEventListener('click', () => {
+  document.querySelector('.history-container').classList.toggle('history-container-display')
+})
 
-
-
-
+// getCountry('Lithuania')

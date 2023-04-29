@@ -16,12 +16,18 @@ body.dark-mode {
   padding: 0;
   margin: 0;
 }
+main {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
 body {
   font-family: "Roboto", sans-serif;
   background-color: var(--light-main-bg-color);
   transition: background-color 1s;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 h2,
 h3,
@@ -79,8 +85,7 @@ h1 {
   flex-direction: column;
 }
 /* POP-UP */
-.pop-up-window-container,
-.pop-up-window-container-map {
+.pop-up-window-container {
   position: relative;
 }
 .pop-up-window {
@@ -163,4 +168,50 @@ footer p {
 
 .display {
   display: none;
+}
+/* History wrapper Section */
+.history-container-main {
+  z-index: 5;
+  justify-content: flex-end;
+  display: flex;
+  position: absolute;
+  right: 0px;
+}
+.history-container-main p {
+  color: var(--light-font-color);
+}
+.history-container-main ul {
+  list-style-type: none;
+  text-align: center;
+}
+.history-container li {
+  margin-bottom: 5px;
+  width: 150px;
+}
+.history-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--light-secondary-color);
+  color: var(--light-font-color);
+  margin-top: 50px;
+  font-size: 20px;
+  margin-right: -150px;
+  transition: margin-right 2s;
+}
+.history-container-main button {
+  position: absolute;
+  left: -44px;
+  background-color: var(--light-secondary-color);
+  font-size: 40px;
+  border: none;
+  padding-right: 5px;
+  transition: background-color 1s;
+  cursor: pointer;
+  padding-left: 10px;
+  border-radius: 10px;
+}
+.history-container-display {
+  margin-right: 0px;
+  transition: margin-right 2s;
 }
