@@ -1,107 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="country_main.css" />
-    <link rel="icon" type="image/x-icon" href="Icons/icons8-globe-16.png" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-      crossorigin=""
-    /> -->
-    <script src="country_main.js" defer></script>
-    <script
-      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-      crossorigin=""
-      defer
-    ></script>
-    <title>Country App</title>
-  </head>
-  <body>
-    <header>
-      <div class="cointerner-left-side">
-        <img
-          class="app-logo"
-          src="Icons/Lovepik_com-400221236-globe.png"
-          alt="application logo"
-        />
-        <div class="left-content-header">
-          <h1>Enter the country you want to know about</h1>
-          <input type="text" />
-        </div>
-      </div>
-      <div class="cointeiner-right-side">
-        <div class="pop-up-window-container">
-          <img class="filter-icon" src="Icons/pngegg.png" alt="filter icon" />
-          <div class="pop-up-window pop-up-window-hide">
-            <label>
-              <input type="checkbox" id="languages" checked />
-              <p>💬 Languages</p>
-            </label>
-            <label>
-              <input type="checkbox" id="currencies" checked />
-              <p>💰 Currencies</p>
-            </label>
-            <label>
-              <input type="checkbox" id="population" checked />
-              <p>👬 Population</p>
-            </label>
-            <label>
-              <input type="checkbox" id="capital" />
-              <p>🏙️ Capital</p>
-            </label>
-            <label>
-              <input type="checkbox" id="timezones" />
-              <p>⏱Time zone</p>
-            </label>
-            <label>
-              <input type="checkbox" id="map-info" />
-              <p>🗺️Location</p>
-            </label>
-          </div>
-        </div>
-        <button>Click To Switch Color</button>
-      </div>
-    </header>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="stylesheet" href="country_main.css" />
+		<link rel="icon" type="image/x-icon" href="Icons/icons8-globe-16.png" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Country App</title>
+	</head>
+	<body>
+		<header>
+			<div class="cointerner-left-side">
+				<img
+					class="app-logo"
+					src="Icons/Lovepik_com-400221236-globe.png"
+					alt="application logo"
+				/>
+				<div class="left-content-header">
+					<h1>Enter the country you want to know about</h1>
+					<input type="text" />
+				</div>
+			</div>
+			<div class="cointeiner-right-side">
+				<div class="pop-up-window-container">
+					<img
+						class="filter-icon"
+						src="Icons/pngegg.png"
+						alt="filter icon"
+					/>
+					<div class="pop-up-window pop-up-window-hide">
+						<label>
+							<input type="checkbox" id="languages" checked />
+							<p>💬 Languages</p>
+						</label>
+						<label>
+							<input type="checkbox" id="currencies" checked />
+							<p>💰 Currencies</p>
+						</label>
+						<label>
+							<input type="checkbox" id="population" checked />
+							<p>👬 Population</p>
+						</label>
+						<label>
+							<input type="checkbox" id="capital" />
+							<p>🏙️ Capital</p>
+						</label>
+						<label>
+							<input type="checkbox" id="timezones" />
+							<p>⏱Time zone</p>
+						</label>
+						<label>
+							<input type="checkbox" id="map-info" />
+							<p>🗺️Location</p>
+						</label>
+					</div>
+				</div>
+				<button>Click To Switch Color</button>
+			</div>
+		</header>
 
-    <main>
-      <wrapper class="container-main"> </wrapper>
-      <wrapper class="history-container-main">
-        <div class="history-container">
-          <ul>
-            <p>Search History</p>
-            <li>Espana</li>
-            <li>Poland</li>
-            <li>Rusian Federation</li>
-            <li>312</li>
-            <li>312</li>
-            <li>312</li>
-            <li>312</li>
-            <li>312</li>
-            <li>312</li>
-            <p>🗑️</p>
-          </ul>
-          <button>📜</button>
-        </div>
-      </wrapper>
-    </main>
-    <footer>
-      <p>
-        Design and create by
-        <a href="https://github.com/Avvensome" target="_blank"
-          >Patryk Zawistowski</a
-        >
-      </p>
-    </footer>
-  </body>
+		<main>
+			<wrapper class="container-main"> </wrapper>
+			<wrapper class="history-container-main">
+				<div class="history-container">
+					<ul>
+						<p>Search History</p>
+					</ul>
+					<p class="history-container-btn">🗑️</p>
+					<button>📜</button>
+				</div>
+			</wrapper>
+		</main>
+		<footer>
+			<p>
+				Design and create by
+				<a href="https://github.com/Avvensome" target="_blank"
+					>Patryk Zawistowski</a
+				>
+			</p>
+		</footer>
+		<script src="country_main.js"></script>
+	</body>
 </html>

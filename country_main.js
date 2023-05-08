@@ -13,7 +13,8 @@ const filterIcon = document.querySelector('.filter-icon')
 const popupWindow = document.querySelector('.pop-up-window ')
 const checkBoxes = document.querySelectorAll('.pop-up-window input[type="checkbox"]')
 // History Panel
-
+const historyBtn = document.querySelector('.history-container-main button')
+const historyContainer = document.querySelector(".history-container")
 // Blocking All Checkboxes before typing a country
 checkBoxes.forEach(e => e.disabled = true)
 // Local Storage
@@ -25,6 +26,7 @@ input.addEventListener('keypress', function (e) {
   if (e.key === "Enter") e.preventDefault()
   if (e.key === "Enter") {
     mainContainer.textContent = ""
+    document.querySelector('.history-container ul').insertAdjacentHTML('afterend', `<li>${input.value}</li>`)
     getCountry(input.value)
     input.value = ''
   }
@@ -130,9 +132,11 @@ checkBoxes.forEach((checkbox, i) => {
   });
 })
 // Search History
-const searchHistory = []
-document.querySelector('.history-container-main button').addEventListener('click', () => {
-  document.querySelector('.history-container').classList.toggle('history-container-display')
-})
+historyBtn.addEventListener('click', () => historyContainer.classList.toggle('history-container-display'))
 
 // getCountry('Lithuania')
+//Zainplementować dodanie wartosci inputa do history main
+//Jesli jest za duzo na liście krajów musi być scroll bar
+//Przycisk kosza usuwa całą historie
+//Wystylizować button clear aby był lekko pod kontenerem
+//Heandle Errors
