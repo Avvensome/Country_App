@@ -15,6 +15,8 @@ const checkBoxes = document.querySelectorAll('.pop-up-window input[type="checkbo
 // History Panel
 const historyBtn = document.querySelector('.history-container-main button')
 const historyContainer = document.querySelector(".history-container")
+const historyDeleteBtn = document.querySelector('.history-container-btn')
+const historyList = document.querySelector('.history-list')
 // Blocking All Checkboxes before typing a country
 checkBoxes.forEach(e => e.disabled = true)
 // Local Storage
@@ -26,7 +28,7 @@ input.addEventListener('keypress', function (e) {
   if (e.key === "Enter") e.preventDefault()
   if (e.key === "Enter") {
     mainContainer.textContent = ""
-    document.querySelector('.history-container ul').insertAdjacentHTML('afterend', `<li>${input.value}</li>`)
+    document.querySelector('.history-container ul').insertAdjacentHTML('afterbegin', `<li>${input.value}</li>`)
     getCountry(input.value)
     input.value = ''
   }
@@ -101,7 +103,12 @@ const countryHtmlStructure = (countryInfo) => {
 // Render Main Structure
 const getCountry = (countryName) => {
   fetch(`https://restcountries.com/v2/name/${countryName}`)
-    .then(response => response.json())
+    .then(response => {
+      //  catching Errors
+      if (!response.ok)
+        throw new Error('somethins Wrong ')
+      return response.json()
+    })
     .then(data => {
       // Render Main Country
       mainContainer.insertAdjacentHTML('beforeend', countryHtmlStructure(data[0]))
@@ -131,12 +138,11 @@ checkBoxes.forEach((checkbox, i) => {
 
   });
 })
-// Search History
+// Display History
 historyBtn.addEventListener('click', () => historyContainer.classList.toggle('history-container-display'))
+// Delete Search Hsitory
+historyDeleteBtn.addEventListener('click', (e) => {
+  historyList.innerHTML = '';
+})
 
 // getCountry('Lithuania')
-//Zainplementować dodanie wartosci inputa do history main
-//Jesli jest za duzo na liście krajów musi być scroll bar
-//Przycisk kosza usuwa całą historie
-//Wystylizować button clear aby był lekko pod kontenerem
-//Heandle Errors

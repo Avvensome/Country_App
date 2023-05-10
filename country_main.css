@@ -198,11 +198,11 @@ footer p {
 	height: 300px;
 	margin-top: 50px;
 	font-size: 20px;
-	margin-right: -150px;
+	margin-right: -170px;
 	transition: margin-right 2s;
 }
 .history-container-main button {
-	left: -60px;
+	left: -63px;
 	position: absolute;
 	background-color: var(--light-secondary-color);
 	font-size: 35px;
@@ -211,7 +211,8 @@ footer p {
 	transition: background-color 1s;
 	cursor: pointer;
 	padding-left: 10px;
-	border-radius: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
 }
 .history-container-display {
 	margin-right: 0px;
@@ -224,4 +225,11 @@ footer p {
 	position: absolute;
 	bottom: -35px;
 	left: 50px;
+}
+.history-container-list {
+	height: 300px;
+	overflow: auto;
+}
+.history-container p {
+	text-align: center;
 }
