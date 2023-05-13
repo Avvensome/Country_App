@@ -1,6 +1,7 @@
 // Select all elements and inputs
 const body = document.querySelector('body')
 const header = document.querySelector('header')
+
 // Country Container
 const mainContainer = document.querySelector('.container-main')
 const containerCountry = document.querySelector('.container-country-main-')
@@ -8,21 +9,22 @@ const containerCountry = document.querySelector('.container-country-main-')
 const logo = document.querySelector('.app-logo')
 const input = document.querySelector('input')
 const colorSwitcher = document.querySelector('header button')
-// Pop-up-window
+// Filters
 const filterIcon = document.querySelector('.filter-icon')
 const popupWindow = document.querySelector('.pop-up-window ')
 const checkBoxes = document.querySelectorAll('.pop-up-window input[type="checkbox"]')
+// Blocking All Checkboxes before typing a country
+checkBoxes.forEach(e => e.disabled = true)
 // History Panel
 const historyBtn = document.querySelector('.history-container-main button')
 const historyContainer = document.querySelector(".history-container")
 const historyDeleteBtn = document.querySelector('.history-container-btn')
 const historyList = document.querySelector('.history-list')
-// Blocking All Checkboxes before typing a country
-checkBoxes.forEach(e => e.disabled = true)
+// Error popup
+errorNotificationContainer = document.querySelector('.error-notification')
+errorNotificationText = document.querySelector('.error-notification p')
 // Local Storage
 let theme = localStorage.getItem('theme') || "light"
-// Leaflet Library configuration
-
 // buttons,inputs
 input.addEventListener('keypress', function (e) {
   if (e.key === "Enter") e.preventDefault()
@@ -105,8 +107,9 @@ const getCountry = (countryName) => {
   fetch(`https://restcountries.com/v2/name/${countryName}`)
     .then(response => {
       //  catching Errors
+      console.log(response);
       if (!response.ok)
-        throw new Error('somethins Wrong ')
+        throw new Error(showInfoPopup(`The country doesn't exist. Error:${response.status}`))
       return response.json()
     })
     .then(data => {
@@ -144,5 +147,9 @@ historyBtn.addEventListener('click', () => historyContainer.classList.toggle('hi
 historyDeleteBtn.addEventListener('click', (e) => {
   historyList.innerHTML = '';
 })
-
-// getCountry('Lithuania')
+// Show Info Handling Window
+const showInfoPopup = (text) => {
+  errorNotificationContainer.classList.add('error-notification-show')
+  setTimeout(() => errorNotificationContainer.classList.remove('error-notification-show'), 3000);
+  errorNotificationText.textContent = text
+}
